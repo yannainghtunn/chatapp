@@ -1,0 +1,134 @@
+:root {
+    --blue:#3596B5;
+    
+}
+@property --rotate {
+    syntax: "<angle>";
+    initial-value: 138deg;
+    inherits:false;
+}
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+.container {
+    width:"100%";
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-image:radial-gradient(rgba(76, 0, 130, 0.534),white);
+    background-color: #ffffff;
+    transition: opacity .5s;
+    animation: spin 10s linear infinite;
+}
+@media screen and ( max-width: 500px ) { 
+    .container { flex-direction: column; background-color: #ffffff;}
+}
+.container-blur::after {
+    position: absolute;
+    content:"";
+    width:"100%";
+    height:"100%";
+    top:0px;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index:-1;
+    margin:auto;
+    filter:blur(100px);
+    border-radius: 10px;
+    opacity: 0.7;
+    background-image: linear-gradient(var(--rotate), white,indigo);
+    transition: opacity .5s;
+    /*animation: spin 2s linear infinite;*/
+}
+.container-blur {
+    width:97%;
+    max-width:600px;
+    position: relative;
+    z-index: 1;
+    min-height: 50px;
+    padding:20px 5px;
+    border-radius: 10px;
+    border:0.1px solid white;
+    background-color: #dddddd;
+    /*backdrop-filter:blur(200px);*/
+    display:flex;
+    margin:5px auto;
+    
+    align-items: center;
+    justify-content: center;
+    color:black;
+    flex-direction: column;
+}
+.card-blur {
+    position: relative;
+    z-index:0;
+    border-radius: 50%;
+}
+.card-blur::before {
+    position: absolute;
+    content:"";
+    width:"100%";
+    height:"100%";
+    top:100px;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index:-1;
+    margin:auto;
+    filter:blur(1px);
+    border-radius: 20px;
+    background-image: linear-gradient(var(--rotate), #5ddcff, #3c67e3 43%, #4e00c2);
+    transition: opacity .5s;
+    animation: spin 2s linear infinite;
+}
+.card-blur::after {
+    position: absolute;
+    content:"";
+    width:"100%";
+    height:"100%";
+    top:100px;
+    transform: scale(1);
+    left:0;
+    right:0;
+    bottom:0;
+    z-index:-1;
+    margin:auto;
+    filter:blur(40px);
+    background-image: linear-gradient(var(--rotate), #5ddcff, #3c67e3 43%, #4e00c2);
+    transition: opacity .5s;
+    animation: spin 2s linear infinite;
+}
+@keyframes spin {
+    0% {
+        --rotate: 0deg;
+    }
+    100% {
+        --rotate: 360deg;
+    }
+}
+button {
+    user-select: none; 
+}
+.btn-full {
+    background-color: var(--blue);
+    padding: 5px 15px;
+    border-style: none;
+    border-radius: 10px;
+    color:white;
+    cursor: pointer;
+}
+
+.btn-line {
+    background-color: rgba(0,0,0,0);
+    padding:5px 15px;
+    cursor: pointer;
+    border-style:none;
+    border-radius: 10px;
+    outline: 1px solid var(--blue);
+    color:var(--blue);
+}
