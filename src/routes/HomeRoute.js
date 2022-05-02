@@ -5,14 +5,12 @@ import pf_img from "../assets/pf.jpg";
 import {motion} from "framer-motion";
 const lrVarient={
   init:{
-    x:"-50vw",
+    opacity:0
   },
   ani: {
-    x: "0",
+    opacity:1,
     transition: {
-      type:"spring",
-      bounce: 0.7,
-      duration: 1,
+      duration: 2,
     }
   }
 }

@@ -52,10 +52,10 @@ export default function AuthComponent(props) {
     <DIV>
     <div sx={{width:100,height:100}}><Logo/></div>
     <motion.p variants={bounceVarient} initial="initial" animate="animate"  style={{color:theme.palette.text.primary,fontWeight:"bold",textAlign:"center",marginTop:"0px",fontSize:"20px"}}>{mode=="register"?"Register":mode=="verify"?"Verify":"Login"}</motion.p>
-    <motion.div transition={{}} style={{width:"100%",height:"100%",position:"relative"}}>
+    <motion.div className="container-blur" transition={{}} style={{height:"100%",position:"relative"}}>
         
-        <motion.div className="card-blur" style={{zIndex:2,margin:"10px",padding:"10px 0px",position:"relative"}} variants={bounceVarient} initial={{scale:0.9}} animate="animate">
-            <DIV_BOX style={{backdropFilter: "blur(10px)",boxShadow:"0px 0px 10px "+theme.palette.shadow,width:"100%",margin:'auto',backgroundColor:theme.palette.background,borderRadius:"20px",boxSizing:"border-box"}}>
+        <motion.div style={{zIndex:2,margin:"10px",padding:"10px 0px",position:"relative"}} variants={bounceVarient} initial={{scale:0.9}} animate="animate">
+            <DIV_BOX style={{backdropFilter: "blur(10px)",boxShadow:"0px 0px 10px "+theme.palette.shadow,width:"100%",margin:'auto',boxSizing:"border-box"}}>
                 {mode=="login" && <LoginComponent key="login" toggle={modeToggle} setEmail={setEmail}/>}
                 {mode=="register" && <RegisterComponent key="register" toggle={modeToggle} setEmail={setEmail}/>}
                 {mode=="verify" && <VerifyComponent key="verify" email={email.current}/>}    
